@@ -1,0 +1,67 @@
+Q1/
+
+
+String str = "abcdDCBA123";
+String strNew = str.replace("a", ""); // strNew is 'bcdDCBA123'
+
+
+Q2/
+
+#include <stdio.h>
+int main()
+{
+int a, b, i, flag;
+printf(“\nEnter start value : “);
+scanf(“%d”,&a);
+printf(“\nEnter end value : “);
+scanf(“%d”,&b);
+printf(“\nPrime Numbers between %d and %d : “, a, b);
+while (a < b)
+{
+flag = 0;
+for(i = 2; i <= a/2; ++i)
+{
+if(a % i == 0)
+{
+flag = 1;
+break;
+}
+}
+if (flag == 0)
+printf(“%d “, a);
+++a;
+}
+printf(“\n”);
+return 0;
+}
+
+Q3/
+
+#include <bits/stdc++.h>
+using namespace std;
+int occurrences_char(string str, int length, int n, char ch){
+   int count = 0;
+   for (int i = 0; i < length; i++){
+      if (str[i] == ch){
+         count++;
+      }
+   }
+   int occ = n / length;
+   count = count * occ;
+   for (int i = 0; i < n % length; i++){
+      if (str[i] == ch){
+         count++;
+      }
+   }
+   return count;
+}
+int main(){
+   string str = "TPTTTT";
+   char ch = 'T';
+   int n = 12;
+   int length = str.size();
+   cout<<"Count of occurrences of a character in a repeated string are: "<<occurrences_char(str, length, n, ch);
+   return 0;
+}
+
+
